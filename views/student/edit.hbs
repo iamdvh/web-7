@@ -1,0 +1,49 @@
+<div class="container">
+
+<form action="/student/edit" method="post">
+  <h1 >Add new student</h1>
+  <div class="form-gourp mb-3 bt-3">
+    <label for="name" class="text-primary">Name</label>
+    <input
+      class="form-control"
+      type="text"
+      name="name"
+      id=""
+      required
+      minlength="3"
+      maxlength="30"
+      value="{{student.name}}" disabled
+    />
+  </div>
+  <div class="form-gourp">
+    <label for="dob" class="text-primary">Day Of Birth</label>
+    <input class="form-control" type="date" name="dob" value="{{{dateFormat student.dob "YYYY/MM/DD"}}}"/>
+  </div>
+  <div class="form-gourp mt-3 mb-3">
+    <label for="gender" class="text-primary">Gender</label>
+    {{#equal student.gender "Male"}}
+     <input type="radio" name="gender" checked="false" id="true" name="gender" />Female
+    <input type="radio" name="gender" checked="true" id="" value="male" />Male
+    {{/equal}}
+    {{#equal student.gender "Female"}}
+    <input type="radio" name="gender" checked="false" value="male" /> Male
+    <input type="radio" name="gender" checked="true" value="famale"  />Female
+    {{/equal}}
+
+  </div>
+  <div class="form-gourp">
+    <label for="gpa" class="text-primary">GPA</label>
+    <input class="form-control" type="number" name="gpa" id="" min="0" max="10" value="{{student.gpa}}"/>
+  </div>
+  <div class="form-gourp mt-3 mb-3">
+    <label for="image" class="text-primary">Image</label>
+    <input class="form-control" type="url" name="image" id="" value="{{student.image}}" />
+  </div>
+  </div>
+  <div class="form-gourp text-center">
+    <input class="btn btn-primary" type="submit" value="Edit">
+    <input class="btn btn-success" type="reset" value="Clear">
+  </div>
+
+</form>
+</div>

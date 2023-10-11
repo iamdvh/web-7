@@ -1,0 +1,37 @@
+<div class="container">
+
+  <table class="table table-borded">
+    <tr>
+      <th
+        colspan="3"
+        class="text text-bg-success text-center text-uppercase"
+      >Student List</th>
+      <th class="text text-bg-success text-center text-uppercase">
+        <a href="student/add">Add</a>
+      </th>
+    </tr>
+    <tr>
+      <th>Student Name</th>
+      <th>Student Birthday</th>
+      <th>Student Image</th>
+      <th>Menu</th>
+    </tr>
+    {{#each students}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{{dateFormat dob "DD/MM/YYYY"}}}</td>
+        {{!-- <td>{{gpa}}</td> --}}
+        <td>
+            <a href="student/detail/{{_id}}">
+                 <img src="{{image}}" alt="student image" width="150" height="150" />
+            </a>
+        </td>
+        <td>
+          <a href="student/edit/{{_id}}">Edit</a>
+          <a href="student/delete/{{_id}}"
+           onclick="return confirm("Are you sure to delete this student?");">Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
